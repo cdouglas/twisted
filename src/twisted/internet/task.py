@@ -10,6 +10,7 @@ Scheduling utility methods and classes.
 import sys
 import time
 import warnings
+import random
 from typing import (
     Callable,
     Coroutine,
@@ -801,7 +802,7 @@ class Clock:
             lambda c: None,
             self.seconds,
         )
-        self.calls.append(dc)
+        self.calls.insert(random.randint(0, len(self.calls)), dc)
         self._sortCalls()
         return dc
 
